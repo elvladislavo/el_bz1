@@ -147,9 +147,21 @@ policy, which currently discloses it.
 solved as a two-variable Oregonator on a periodic grid in `js/bz.js` — painted
 onto one fixed canvas behind every section. The grid is sized from the
 viewport (a cell is about 4 px, 3 px on phones), so the spirals keep one scale
-on a phone and on a desktop. The loop runs at 30 fps, times itself, and takes
-work away from itself on a slow device before it would cost a scroll frame; it
-pauses in a background tab and holds one still frame under
+on a phone and on a desktop.
+
+Two dials sit at the top of `js/bz.js`, right under the model constants:
+
+```js
+var SPEED = 1;   // 1 as shipped · 0.5 half as fast · 2 twice as fast
+var SCALE = 1;   // 1 as shipped · 1.5 a larger, cheaper pattern · 0.7 finer
+```
+
+`SPEED` is a rate, not a step count, so fractions work and the waves travel at
+the same speed on every machine. The loop owes itself steps by the clock and
+pays off as many as fit in a 5 ms slice of each frame, so a frame costs the
+same whatever the device — a slow one simply sees the waves move slower, and
+the simulation can never hold up a scroll. It starts only after the page has
+loaded, pauses in a background tab, and holds one still frame under
 `prefers-reduced-motion`.
 
 Three dials in `css/style.css` (`:root`) decide how it sits under the type —

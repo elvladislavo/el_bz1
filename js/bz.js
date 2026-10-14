@@ -35,14 +35,24 @@
   var DT = 0.008, DX = 0.95, Q = 0.002, EPS = 0.08, F = 0.90;
   var KU = 1.0 / (DX * DX), KV = 0.60 / (DX * DX), INV_EPS = 1 / EPS;
 
-  var CELL     = 4;            // CSS pixels per grid cell (3 on phones,
-                               // where the screen is small but dense)
-  var MAXCELLS = 108000;       // work ceiling, independent of window size
-  var BUDGET   = 2.6e6;        // cell updates per second the loop aims at
+  /* ── The two dials worth touching ─────────────────────────────────────
+     SPEED  how fast the waves travel. 1 is as shipped; 0.5 is half speed,
+            2 is twice. Fractions are fine — it is a rate, not a step count.
+     SCALE  how large the pattern is. 1 is as shipped; 1.5 draws it half
+            again as big (and costs less), 0.7 finer (and costs more).     */
+  var SPEED = 1;
+  var SCALE = 1;
+  /* ─────────────────────────────────────────────────────────────────── */
 
-  var FPS     = 30;
+  var CELL     = 4 * SCALE;    // CSS pixels per grid cell (one less on
+                               // phones, where the screen is small but dense)
+  var MAXCELLS = 108000;       // work ceiling, independent of window size
+  var RATE     = 30 * SPEED;   // simulation steps per second
+
+  var FPS     = 30;            // painted frames per second
   var STEP_MS = 1000 / FPS;
-  var SUB     = 2;             // simulation steps per painted frame
+  var BUDGET  = 5;             // ms of simulation per frame, hard ceiling
+  var owed    = 0;             // steps the clock says are due but unpaid
 
   var NX = 0, NY = 0, N2 = 0;
   var U, V, U2, V2, xm, xp, yo, yu;
@@ -62,7 +72,6 @@
     }
 
     NX = nx; NY = ny; N2 = nx * ny;
-    SUB = Math.max(1, Math.min(4, Math.round(BUDGET / (N2 * FPS))));
 
     U  = new Float32Array(N2); V  = new Float32Array(N2);
     U2 = new Float32Array(N2); V2 = new Float32Array(N2);
@@ -111,9 +120,9 @@
     }
   }
 
-  function fresh() {
+  function fresh(density) {
     U.fill(0); V.fill(0);
-    var n = Math.max(4, Math.min(26, Math.round(N2 / 4200)));
+    var n = Math.max(4, Math.min(40, Math.round(N2 / (density || 4200))));
     var R = 12;
     for (var k = 0; k < n; k++) {
       seed((R + Math.random() * (NX - 2 * R)) | 0,
@@ -167,43 +176,48 @@
   function warm(n) { for (var i = 0; i < n; i++) step(); }
 
   /* ══ Loop ════════════════════════════════════════════════════════════
-     Fresh seeds are discs, not spirals; the arms only wind up after a few
-     thousand steps. Rather than pay for that before first paint, the loop
-     runs fast for its first seconds (while the canvas is still fading in)
-     and then settles to the slow drift it keeps for the rest of the visit.
+     Steps are owed by the clock, not by the frame: each frame adds the
+     steps the elapsed time calls for and then pays off as many as fit in
+     BUDGET milliseconds. A frame therefore costs about the same whatever
+     the device, a slow machine simply sees the waves travel slower, and
+     no frame can ever be held hostage by the simulation.
 
-     Each frame is timed. If the device cannot keep up, the loop gives
-     itself less work, and finally holds a still frame — a background is
-     never worth a dropped scroll frame.                                   */
+     Fresh seeds are discs; the arms only wind up after a few thousand
+     steps. That debt is added a little at a time (catch-up below) so the
+     pattern matures over the first minute instead of blocking the load.  */
   var raf = 0, last = 0, frames = 0, animating = false;
-  var boost = 0;                 // extra steps per frame, decaying to none
+  var catchUp = 0;               // steps still owed from the opening ramp
   var cost = 0;                  // ms per frame, smoothed
   var slow = 0;
 
   function tick(now) {
     raf = requestAnimationFrame(tick);
-    if (document.hidden) { last = now; return; }
-    if (now - last < STEP_MS) return;
+    if (document.hidden) { last = now; owed = 0; return; }
+    var dt = now - last;
+    if (dt < STEP_MS) return;
     last = now;
 
-    var t0 = now;
-    var n = SUB + (boost > 0 ? boost : 0);
-    for (var s = 0; s < n; s++) step();
-    draw();
-    if (boost > 0) boost -= 1;
+    owed += RATE * Math.min(dt, 250) / 1000;
+    if (catchUp > 0) { var c = Math.min(catchUp, RATE * 0.5); catchUp -= c; owed += c; }
+    if (owed > 40) owed = 40;                 // never try to make up a long gap
+
+    var t0 = performance.now(), ran = 0;
+    while (owed >= 1 && performance.now() - t0 < BUDGET) { step(); owed--; ran++; }
+    if (ran) draw();
 
     cost = cost ? cost * 0.9 + (performance.now() - t0) * 0.1 : performance.now() - t0;
 
     if ((++frames & 31) === 0) {
-      if (cost > 12 && boost <= 0) {              // fewer steps, then fewer
-        if (SUB > 1) SUB--;                       // frames, and only then give
-        else if (STEP_MS < 90) STEP_MS *= 1.6;    // up altogether
+      // One step already overruns the budget: paint less often, and on a
+      // device that cannot even manage that, hold a still frame.
+      if (cost > BUDGET * 2.4) {
+        if (STEP_MS < 90) STEP_MS *= 1.6;
         else if (++slow > 2) { stop(); return; }
       }
-      if ((frames & 127) === 0) {                 // restart if it dies out
+      if ((frames & 127) === 0) {              // restart if it dies out
         var peak = 0;
         for (var i = 0; i < N2; i += 37) if (U[i] > peak) peak = U[i];
-        if (peak < 0.05) { fresh(); boost = 120; }
+        if (peak < 0.05) { fresh(); catchUp = 1200; }
       }
     }
   }
@@ -211,7 +225,7 @@
   function start() {
     if (animating || mqReduce.matches) return;
     animating = true;
-    last = 0;
+    last = 0; owed = 0;
     raf = requestAnimationFrame(tick);
   }
 
@@ -221,18 +235,48 @@
     raf = 0;
   }
 
+  // Thousands of steps, in slices short enough to stay out of the way, with
+  // a deadline so a slow machine still ends up with a picture.
+  function warmSliced(total, done) {
+    var left = total, stop = performance.now() + 7000, fired = false;
+    var finish = function () { if (!fired) { fired = true; done(); } };
+    (function slice() {
+      var t0 = performance.now();
+      while (left > 0 && performance.now() - t0 < 12) { step(); left--; }
+      if (left <= 0 || performance.now() > stop) { finish(); return; }
+      // A timeout, not an idle callback: the page is already painted, and
+      // idle time can be scarce enough that the picture never arrives.
+      setTimeout(slice, 0);
+    })();
+  }
+
   function build() {
     allocate();
     fresh();
-    warm(mqReduce.matches ? 2600 : 300);   // a still frame has to arrive developed
-    draw();
-    boost = 150;
     slow = 0; cost = 0;
-    host.classList.add('is-on');
+    if (mqReduce.matches) {
+      // A still frame has to arrive developed, and it must arrive without
+      // motion — so it is computed in slices, seeded densely so it matures
+      // in fewer steps, and shown once, finished.
+      fresh(2600);
+      warmSliced(1800, function () { draw(); host.classList.add('is-on'); });
+    } else {
+      warm(30);                      // just enough that the first frame reads
+      draw();
+      catchUp = 2400;                // the rest is paid off over the first minute
+      host.classList.add('is-on');
+    }
   }
 
-  build();
-  start();
+  /* Nothing here may compete with the page's own first paint: the whole
+     thing waits for load, and then for the first idle moment after it.    */
+  function boot() {
+    var go = function () { build(); start(); };
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 1200 });
+    else setTimeout(go, 300);
+  }
+  if (document.readyState === 'complete') boot();
+  else window.addEventListener('load', boot, { once: true });
 
   /* Keep a cell roughly the same size on screen, but ignore the small
      height changes a mobile browser chrome makes while scrolling.         */
