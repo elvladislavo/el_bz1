@@ -322,7 +322,9 @@ em { font-style: normal; }
   opacity: 0;
   filter: blur(var(--bz-blur)) saturate(1.05);
   transform: scale(1.04);          /* hides the blur's soft edge */
-  transition: opacity 1.4s var(--e-io);
+  /* Arrives on the same curve and in the same breath as the section
+     reveals, so it reads as part of the page coming in, not a late guest. */
+  transition: opacity .9s var(--e);
 }
 .bz.is-on canvas { opacity: var(--bz-fade); }
 .bz__veil {
@@ -775,8 +777,8 @@ html.is-preload { overflow: hidden; }
 .proj--b { grid-column: 7 / -1; margin-top: clamp(7rem, 19vw, 21rem); }
 
 .proj__ghost {
-  position: absolute; top: -.44em; left: -.05em;
-  z-index: 0; pointer-events: none;
+  position: absolute; top: -.56em; left: -.05em;
+  z-index: 2; pointer-events: none;
   font-size: clamp(3.2rem, 10.5vw, 11.5rem);
   font-weight: 900; letter-spacing: -.05em;
   color: transparent;
@@ -791,7 +793,7 @@ html.is-preload { overflow: hidden; }
   inset: -30% -12%;
   z-index: -1;
   background: radial-gradient(50% 50% at 50% 50%,
-    rgba(10, 10, 11, .72) 0%, rgba(10, 10, 11, .42) 54%, rgba(10, 10, 11, 0) 100%);
+    rgba(10, 10, 11, .52) 0%, rgba(10, 10, 11, .3) 54%, rgba(10, 10, 11, 0) 100%);
 }
 .proj--b .proj__ghost { left: auto; right: -.05em; }
 
@@ -1415,6 +1417,9 @@ html.is-preload { overflow: hidden; }
   .projects { grid-template-columns: 1fr; }
   .proj--a, .proj--b { grid-column: 1 / -1; }
   .proj--b { margin-top: clamp(3.5rem, 12vw, 8rem); }
+  /* Stacked, each ghost has clear space above its own card and nothing to
+     collide with, so it goes back to being tucked behind it. */
+  .proj__ghost { z-index: 0; top: -.44em; }
   .grid6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid6 .cell:nth-child(3n+2) { transform: none; }
   .grid6 .cell.is-in:nth-child(3n+2) { transform: none; }

@@ -284,13 +284,18 @@
       fresh(2600);
       warmSliced(1800, function () { draw(); host.classList.add('is-on'); });
     } else {
-      // Even the opening is sliced: on a slow phone a single warm-up chunk
-      // is long enough to count against the page's responsiveness.
-      warmSliced(90, function () {
+      /* The reaction arrives once, already itself. Seeds are bare discs, so
+         showing them immediately and then racing the clock to wind them into
+         spirals reads as two separate arrivals — a pale shape fading up, then
+         a visible burst of speed. Instead the medium matures behind the
+         curtain, in slices short enough to stay out of the page's way, and
+         fades up developed, moving at the speed it will keep.              */
+      fresh(2600);
+      warmSliced(700, function () {
         draw();
-        catchUp = 2400;              // the rest is paid off over the first minute
+        catchUp = 300;               // a nudge, not a sprint
         host.classList.add('is-on');
-        settle(start);               // one still frame until the page has calmed
+        settle(start);               // held still until the page has calmed
       });
     }
   }
