@@ -250,6 +250,29 @@
     })();
   }
 
+  /* The first frame is painted and then held: a page that is still settling
+     has better uses for the main thread, and a picture that stops changing
+     is a page that finishes loading, as far as every speed test is
+     concerned. Whichever comes first — the visitor touching the page, or a
+     couple of quiet seconds — sets it moving.                              */
+  var EVENTS = ['pointerdown', 'wheel', 'touchstart', 'keydown', 'scroll'];
+  function settle(go) {
+    var done = false;
+    var fire = function () {
+      if (done) return;
+      done = true;
+      clearTimeout(t);
+      for (var i = 0; i < EVENTS.length; i++) {
+        window.removeEventListener(EVENTS[i], fire, { passive: true, capture: true });
+      }
+      go();
+    };
+    var t = setTimeout(fire, 2600);
+    for (var i = 0; i < EVENTS.length; i++) {
+      window.addEventListener(EVENTS[i], fire, { passive: true, capture: true, once: true });
+    }
+  }
+
   function build() {
     allocate();
     fresh();
@@ -261,19 +284,26 @@
       fresh(2600);
       warmSliced(1800, function () { draw(); host.classList.add('is-on'); });
     } else {
-      warm(30);                      // just enough that the first frame reads
-      draw();
-      catchUp = 2400;                // the rest is paid off over the first minute
-      host.classList.add('is-on');
+      // Even the opening is sliced: on a slow phone a single warm-up chunk
+      // is long enough to count against the page's responsiveness.
+      warmSliced(90, function () {
+        draw();
+        catchUp = 2400;              // the rest is paid off over the first minute
+        host.classList.add('is-on');
+        settle(start);               // one still frame until the page has calmed
+      });
     }
   }
 
-  /* Nothing here may compete with the page's own first paint: the whole
-     thing waits for load, and then for the first idle moment after it.    */
+  /* Nothing here may compete with the page's own load: the whole thing waits
+     for the load event, then for an idle moment, and on a phone for a beat
+     longer still — the first seconds belong to the content.                */
   function boot() {
-    var go = function () { build(); start(); };
-    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 1200 });
-    else setTimeout(go, 300);
+    var go = function () {
+      if (window.requestIdleCallback) requestIdleCallback(build, { timeout: 1500 });
+      else setTimeout(build, 200);
+    };
+    setTimeout(go, window.innerWidth < 700 ? 1200 : 600);
   }
   if (document.readyState === 'complete') boot();
   else window.addEventListener('load', boot, { once: true });

@@ -46,6 +46,10 @@
   --bz-veil:  .64;
   --bz-blur:  1.6px;
   --bz-fade:  .86;
+
+  /* Outline-only display type (the cropped wordmarks, the project ghosts)
+     needs more stroke over moving waves than it did over flat ink. */
+  --mark-line: rgba(239, 234, 225, .34);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -249,7 +253,6 @@ em { font-style: normal; }
   background: rgba(10, 10, 11, .56);
 }
 
-.hero__inner::before,
 .hero__meta::before,
 .hero__eyebrow::before,
 .hero__scroll::before,
@@ -278,12 +281,18 @@ em { font-style: normal; }
 }
 
 /* The hero carries no section scrim — the waves are at full strength there —
-   so its halos do the whole job. The box runs well past the viewport on both
-   sides, which puts the dense middle of the ellipse under the copy and the
-   fade off-screen. */
-.hero__inner::before {
-  inset: -7rem -26vw;
-  background: radial-gradient(50% 52% at 50% 50%,
+   so its halo does the whole job. It hangs on the section rather than on the
+   copy, at a z-index below the cropped wordmark, so the mark reads against
+   the quieter ground instead of being painted over by it. The box runs well
+   past the viewport on both sides: the dense middle of the ellipse lands
+   under the copy and the fade happens off-screen. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -4rem -26vw 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(50% 56% at 50% 46%,
     rgba(10, 10, 11, .82) 0%, rgba(10, 10, 11, .6) 54%, rgba(10, 10, 11, 0) 100%);
 }
 .hero__meta::before,
@@ -725,7 +734,7 @@ html.is-preload { overflow: hidden; }
   letter-spacing: -.055em;
   text-align: center;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(239, 234, 225, .2);
+  -webkit-text-stroke: 1px var(--mark-line);
   font-variation-settings: "wdth" 100;
   white-space: nowrap;
 }
@@ -771,10 +780,18 @@ html.is-preload { overflow: hidden; }
   font-size: clamp(3.2rem, 10.5vw, 11.5rem);
   font-weight: 900; letter-spacing: -.05em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(239, 234, 225, .2);
+  -webkit-text-stroke: 1px var(--mark-line);
   white-space: nowrap;
   transform: translate3d(var(--px, 0px), 0, 0);
   will-change: transform;
+}
+.proj__ghost::before {
+  content: "";
+  position: absolute;
+  inset: -30% -12%;
+  z-index: -1;
+  background: radial-gradient(50% 50% at 50% 50%,
+    rgba(10, 10, 11, .72) 0%, rgba(10, 10, 11, .42) 54%, rgba(10, 10, 11, 0) 100%);
 }
 .proj--b .proj__ghost { left: auto; right: -.05em; }
 
