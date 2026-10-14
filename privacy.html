@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pl" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Polityka prywatności · elvladislavo</title>
+<meta name="description" content="Jak elvladislavo przetwarza dane osobowe przesłane przez formularz kontaktowy i e-mailem.">
+<link rel="canonical" href="https://elvladislavo.com/privacy.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .doc { position: relative; max-width: 74ch; padding-top: calc(var(--nav-h) + clamp(3rem, 8vw, 6rem)); }
+  /* A long read sits over the reaction, so the column carries its own ink. */
+  .doc::before {
+    content: ""; position: absolute; inset: 0 clamp(-3rem, -5vw, -1.5rem);
+    z-index: -1; pointer-events: none;
+    background: rgba(10, 10, 11, .66);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .doc h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin-bottom: .8rem; }
+  .doc h1 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--red); font-size: 1.06em; }
+  .doc h2 { font-size: clamp(1.15rem, 2vw, 1.5rem); margin: 2.6rem 0 .7rem; letter-spacing: -.025em; }
+  .doc h2::before { content: attr(data-n); font: 700 .74rem/1 var(--f-mono); color: var(--red);
+                    display: block; margin-bottom: .5rem; letter-spacing: .16em; }
+  .doc p, .doc li { color: var(--bone-2); font-size: 1rem; }
+  .doc p + p { margin-top: .8rem; }
+  .doc ul { margin-top: .7rem; display: grid; gap: .45rem; }
+  .doc li { padding-left: 1.2rem; position: relative; }
+  .doc li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
+  .doc__meta { font: 400 .78rem/1.5 var(--f-mono); color: var(--mut);
+               padding-bottom: 1.4rem; margin-bottom: 2rem; border-bottom: 1px solid var(--hair); }
+  .doc a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
+  .doc__back { display: inline-flex; align-items: center; gap: .6rem; margin-top: 3rem;
+               font: 700 .9rem/1 var(--f-sans); }
+  .doc__back i { font-style: normal; transition: transform .4s var(--e-snap); }
+  .doc__back:hover i { transform: translateX(-.3rem); }
+</style>
+<script>
+(function(){var d=document.documentElement;d.className=d.className.replace('no-js','js');
+var l=null;try{l=localStorage.getItem('elv-lang');}catch(e){}
+if(l!=='pl'&&l!=='en'){l=/^pl\b/i.test(navigator.language||'')?'pl':'en';}d.lang=l;})();
+</script>
+</head>
+<body>
+
+<div class="bz" id="bz" aria-hidden="true">
+  <canvas id="bzCanvas" width="2" height="2"></canvas>
+  <div class="bz__veil"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav is-stuck">
+  <a class="nav__logo" href="./" aria-label="elvladislavo — home">
+    <span class="nav__word">elvladislavo</span>
+  </a>
+  <div class="nav__right">
+    <div class="lang" role="group" aria-label="Language / Język">
+      <button type="button" class="lang__btn" data-lang="pl">PL</button>
+      <span class="lang__sep" aria-hidden="true">|</span>
+      <button type="button" class="lang__btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="sec doc">
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     TODO before launch: replace [LEGAL NAME] and [ADDRESS] below with the
+     registered details, and confirm the hosting provider named in §6.
+     ───────────────────────────────────────────────────────────────── -->
+
+<article id="doc-en" lang="en" hidden>
+  <h1>Privacy <em>Policy</em></h1>
+  <p class="doc__meta">Last updated: 2 September 2026 · elvladislavo.com</p>
+
+  <p>This policy explains what happens to personal data when you contact elvladislavo through this website. It is written to be read, not to be survived.</p>
+
+  <h2 data-n="01">Who is responsible</h2>
+  <p>The controller of your personal data is elvladislavo, [LEGAL NAME], [ADDRESS], Poland. For anything relating to your data, write to <a href="mailto:hello@elvladislavo.com">hello@elvladislavo.com</a>.</p>
+
+  <h2 data-n="02">What is collected</h2>
+  <p>Only what you send. The contact form asks for your name, email address, the type of project you're interested in and your message. The form does not transmit anything on its own — it composes the message and hands it to your own email application, so nothing reaches me until you press send there.</p>
+  <p>If you email directly, the same applies to whatever your message contains.</p>
+
+  <h2 data-n="03">Why, and on what basis</h2>
+  <ul>
+    <li>To answer your enquiry and, if it goes further, to prepare and carry out a project — Article 6(1)(b) GDPR (steps prior to a contract, and performance of it).</li>
+    <li>To keep a record of business correspondence — Article 6(1)(f) GDPR (legitimate interest).</li>
+    <li>Where accounting or tax law requires it — Article 6(1)(c) GDPR.</li>
+  </ul>
+
+  <h2 data-n="04">How long it is kept</h2>
+  <p>Enquiries that don't lead anywhere are deleted within 12 months. Project correspondence is kept for the length of the engagement and for as long as accounting and limitation periods require.</p>
+
+  <h2 data-n="05">Cookies and local storage</h2>
+  <p>This site sets no cookies and runs no advertising or analytics trackers. It does use your browser's local storage for two small things: remembering whether you chose PL or EN, and remembering that you have already seen the intro animation. Both stay on your device and are never transmitted. Clearing your site data removes them.</p>
+
+  <h2 data-n="06">Third parties</h2>
+  <ul>
+    <li><b>Hosting.</b> The hosting provider processes standard server logs (IP address, time of request, browser identification) for security and diagnostics.</li>
+    <li><b>Google Fonts.</b> Typefaces are loaded from Google's servers, so your IP address is visible to Google when the page loads. If you would rather that not happen, the fonts can be self-hosted — say the word.</li>
+  </ul>
+  <p>No data is sold, and nothing is shared beyond what is described here.</p>
+
+  <h2 data-n="07">Your rights</h2>
+  <p>You may request access to your data, correction, erasure, restriction of processing, portability, or object to processing based on legitimate interest. Write to the address above and you'll get an answer. You also have the right to lodge a complaint with the President of the Personal Data Protection Office (UODO), ul. Stawki 2, 00-193 Warsaw.</p>
+
+  <h2 data-n="08">External links</h2>
+  <p>The portfolio links out to websites built for clients. Once you follow one, that site's own privacy policy applies.</p>
+
+  <h2 data-n="09">Changes</h2>
+  <p>If this policy changes, the date at the top changes with it.</p>
+
+  <a class="doc__back" href="./"><i aria-hidden="true">←</i> Back to elvladislavo</a>
+</article>
+
+<article id="doc-pl" lang="pl">
+  <h1>Polityka <em>prywatności</em></h1>
+  <p class="doc__meta">Ostatnia aktualizacja: 2 września 2026 · elvladislavo.com</p>
+
+  <p>Ta polityka wyjaśnia, co dzieje się z danymi osobowymi, gdy kontaktujesz się z elvladislavo przez tę stronę. Napisana tak, żeby dało się ją przeczytać.</p>
+
+  <h2 data-n="01">Kto odpowiada za dane</h2>
+  <p>Administratorem Twoich danych osobowych jest elvladislavo, [NAZWA], [ADRES], Polska. W sprawach dotyczących danych pisz na <a href="mailto:hello@elvladislavo.com">hello@elvladislavo.com</a>.</p>
+
+  <h2 data-n="02">Jakie dane są zbierane</h2>
+  <p>Tylko te, które sam wysyłasz. Formularz kontaktowy pyta o imię, adres e-mail, rodzaj projektu i treść wiadomości. Formularz nie wysyła niczego samodzielnie — przygotowuje wiadomość i przekazuje ją do Twojego programu pocztowego, więc nic do mnie nie trafia, dopóki sam jej nie wyślesz.</p>
+  <p>Jeśli piszesz bezpośrednio mailem, dotyczy to wszystkiego, co zawiera Twoja wiadomość.</p>
+
+  <h2 data-n="03">W jakim celu i na jakiej podstawie</h2>
+  <ul>
+    <li>Aby odpowiedzieć na zapytanie, a jeśli sprawa pójdzie dalej — przygotować i zrealizować projekt: art. 6 ust. 1 lit. b RODO (działania przed zawarciem umowy i jej wykonanie).</li>
+    <li>Aby prowadzić dokumentację korespondencji biznesowej: art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes).</li>
+    <li>Gdy wymagają tego przepisy rachunkowe lub podatkowe: art. 6 ust. 1 lit. c RODO.</li>
+  </ul>
+
+  <h2 data-n="04">Jak długo są przechowywane</h2>
+  <p>Zapytania, które nie prowadzą do współpracy, usuwam w ciągu 12 miesięcy. Korespondencję projektową przechowuję przez czas trwania współpracy oraz tak długo, jak wymagają tego przepisy rachunkowe i terminy przedawnienia.</p>
+
+  <h2 data-n="05">Cookies i pamięć przeglądarki</h2>
+  <p>Ta strona nie ustawia plików cookies ani nie używa trackerów reklamowych czy analitycznych. Korzysta z pamięci lokalnej przeglądarki w dwóch drobnych celach: zapamiętuje wybór języka (PL lub EN) oraz to, że animacja powitalna została już wyświetlona. Oba zapisy pozostają na Twoim urządzeniu i nie są nigdzie przesyłane. Wyczyszczenie danych witryny je usuwa.</p>
+
+  <h2 data-n="06">Podmioty zewnętrzne</h2>
+  <ul>
+    <li><b>Hosting.</b> Dostawca hostingu przetwarza standardowe logi serwera (adres IP, czas zapytania, identyfikacja przeglądarki) w celach bezpieczeństwa i diagnostyki.</li>
+    <li><b>Google Fonts.</b> Kroje pisma ładowane są z serwerów Google, więc przy wczytaniu strony Twój adres IP jest widoczny dla Google. Jeśli wolisz tego uniknąć, fonty można hostować lokalnie — wystarczy dać znać.</li>
+  </ul>
+  <p>Dane nie są sprzedawane i nie są udostępniane poza tym, co opisano powyżej.</p>
+
+  <h2 data-n="07">Twoje prawa</h2>
+  <p>Masz prawo żądać dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia, a także wnieść sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie. Napisz na adres podany wyżej — dostaniesz odpowiedź. Masz również prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa.</p>
+
+  <h2 data-n="08">Linki zewnętrzne</h2>
+  <p>Portfolio prowadzi do stron zbudowanych dla klientów. Po przejściu na taką stronę obowiązuje jej własna polityka prywatności.</p>
+
+  <h2 data-n="09">Zmiany</h2>
+  <p>Jeśli polityka się zmieni, zmieni się też data na górze.</p>
+
+  <a class="doc__back" href="./"><i aria-hidden="true">←</i> Wróć do elvladislavo</a>
+</article>
+
+</main>
+
+<script>
+(function () {
+  var en = document.getElementById('doc-en');
+  var pl = document.getElementById('doc-pl');
+  function apply(l, remember) {
+    var isPl = l === 'pl';
+    document.documentElement.lang = l;
+    en.hidden = isPl; pl.hidden = !isPl;
+    document.title = isPl ? 'Polityka prywatności · elvladislavo' : 'Privacy Policy · elvladislavo';
+    document.querySelectorAll('.lang__btn').forEach(function (b) {
+      var on = b.dataset.lang === l;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (remember) { try { localStorage.setItem('elv-lang', l); } catch (e) {} }
+  }
+  document.querySelectorAll('.lang__btn').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.dataset.lang, true); });
+  });
+  apply(document.documentElement.lang === 'pl' ? 'pl' : 'en');
+})();
+</script>
+<script src="js/bz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="pl" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>elvladislavo — strony internetowe za rozsądne pieniądze</title>
+<meta name="description" content="Niezależne studio stron internetowych. Strony dla firm, landing page i sklepy WooCommerce. Projektuję i piszę kod sam, bez agencji po drodze.">
+<link rel="canonical" href="https://elvladislavo.com/">
+<link rel="alternate" hreflang="en" href="https://elvladislavo.com/?lang=en">
+<link rel="alternate" hreflang="pl" href="https://elvladislavo.com/?lang=pl">
+<link rel="alternate" hreflang="x-default" href="https://elvladislavo.com/?lang=en">
+<meta name="author" content="elvladislavo">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="elvladislavo">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:url" content="https://elvladislavo.com/">
+<meta property="og:title" content="elvladislavo — strony internetowe za rozsądne pieniądze">
+<meta property="og:description" content="Niezależne studio stron internetowych. Strony dla firm, landing page i sklepy WooCommerce. Projektuję i piszę kod sam, bez agencji po drodze.">
+<meta property="og:image" content="https://elvladislavo.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="elvladislavo — strony internetowe za rozsądne pieniądze">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="elvladislavo — strony internetowe za rozsądne pieniądze">
+<meta name="twitter:description" content="Niezależne studio stron internetowych. Strony dla firm, landing page i sklepy WooCommerce.">
+<meta name="twitter:image" content="https://elvladislavo.com/assets/og-image.jpg">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+
+<script>
+/* Runs before paint: marks JS availability, restores language + motion prefs,
+   and holds the first frame so the localised copy never flashes. */
+(function () {
+  var d = document.documentElement;
+  d.className = d.className.replace('no-js', 'js') + ' is-preload';
+  var lang = null;
+  try { lang = localStorage.getItem('elv-lang'); } catch (e) {}
+  var q = location.search.match(/[?&]lang=(pl|en)\b/);
+  if (q) lang = q[1];
+  if (lang !== 'pl' && lang !== 'en') {
+    lang = /^pl\b/i.test(navigator.language || '') ? 'pl' : 'en';
+  }
+  d.lang = lang;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('reduced');
+})();
+</script>
+<noscript><style>.loader{display:none!important}html.is-preload .gate{opacity:1!important;visibility:visible!important}</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "ProfessionalService",
+        "WebDesignCompany"
+      ],
+      "@id": "https://elvladislavo.com/#studio",
+      "name": "elvladislavo",
+      "alternateName": "elvladislavo web development studio",
+      "description": "Niezależne studio stron internetowych. Projektuję i koduję strony dla firm, landing page i sklepy WooCommerce.",
+      "url": "https://elvladislavo.com/",
+      "email": "hello@elvladislavo.com",
+      "image": "https://elvladislavo.com/assets/og-image.jpg",
+      "logo": "https://elvladislavo.com/assets/favicon.svg",
+      "priceRange": "500–3200+ PLN",
+      "currenciesAccepted": "PLN",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Poland"
+        },
+        {
+          "@type": "Place",
+          "name": "Remote / worldwide"
+        }
+      ],
+      "knowsLanguage": [
+        "pl",
+        "en",
+        "ru",
+        "be",
+        "uk"
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Landing page",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 800,
+            "priceCurrency": "PLN",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Strony dla firm",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 1500,
+            "priceCurrency": "PLN",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Sklepy WooCommerce",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 3200,
+            "priceCurrency": "PLN",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Strony autorskie",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 2000,
+            "priceCurrency": "PLN",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Redesign",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 500,
+            "priceCurrency": "PLN",
+            "valueAddedTaxIncluded": false
+          }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Usługi",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Strony dla firm",
+              "description": "Kilka podstron: oferta, o firmie, kontakt. Treści zmieniasz samodzielnie."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landing page",
+              "description": "Jedna strona pod jedną ofertę. Cała treść i formularz w jednym przewinięciu."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Strony autorskie",
+              "description": "Własny układ, krój pisma i animacje, dobrane pod jedną markę."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sklepy WooCommerce",
+              "description": "Katalog, koszyk i płatności uruchamiam na WordPressie."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Redesign",
+              "description": "Treści i adresy zostają. Zmieniam wygląd, wersję mobilną i czas ładowania."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://elvladislavo.com/#website",
+      "url": "https://elvladislavo.com/",
+      "name": "elvladislavo",
+      "inLanguage": [
+        "pl",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://elvladislavo.com/#studio"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://elvladislavo.com/#work",
+      "name": "Wybrane realizacje",
+      "isPartOf": {
+        "@id": "https://elvladislavo.com/#website"
+      },
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Kameralny Barbershop",
+          "url": "https://kameralnybarbershop.pl",
+          "creator": {
+            "@id": "https://elvladislavo.com/#studio"
+          },
+          "genre": "Strona internetowa"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Zhyvitsa",
+          "url": "https://zhyvitsa.pl",
+          "creator": {
+            "@id": "https://elvladislavo.com/#studio"
+          },
+          "genre": "Strona internetowa"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body id="top">
+
+<a class="skip" href="#main" data-i18n="a11y.skip">Przejdź do treści</a>
+
+<!-- ══ Loader ═══════════════════════════════════════════════════════════ -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <span class="vh" data-i18n="a11y.loading">Ładowanie</span>
+  <div class="loader__stage" aria-hidden="true">
+    <div class="loader__mark" id="loaderMark">elvladislavo</div>
+    <div class="loader__rule"><i id="loaderBar"></i></div>
+    <div class="loader__num" id="loaderNum">00</div>
+  </div>
+  <div class="loader__wipe" aria-hidden="true"></div>
+</div>
+
+<!-- ══ Ambient layers ═══════════════════════════════════════════════════ -->
+<div class="bz" id="bz" aria-hidden="true">
+  <canvas id="bzCanvas" width="2" height="2"></canvas>
+  <div class="bz__veil"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"><span class="cursor__label" data-i18n="work.cursor">ZOBACZ ↗</span></div>
+</div>
+
+<!-- ══ Navigation ═══════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="elvladislavo — home">
+    <span class="nav__word">elvladislavo</span>
+  </a>
+
+  <nav class="nav__menu" id="primary-nav" aria-label="Primary">
+    <ul class="nav__list">
+      <li><a href="#work"     data-nav data-i18n="nav.work">Realizacje</a></li>
+      <li><a href="#services" data-nav data-i18n="nav.services">Usługi</a></li>
+      <li><a href="#pricing"  data-nav data-i18n="nav.pricing">Cennik</a></li>
+      <li><a href="#contact"  data-nav data-i18n="nav.contact">Kontakt</a></li>
+    </ul>
+    <span class="nav__ind" aria-hidden="true"></span>
+  </nav>
+
+  <div class="nav__right">
+    <div class="lang" role="group" aria-label="Language / Język">
+      <button type="button" class="lang__btn" data-lang="pl">PL</button>
+      <span class="lang__sep" aria-hidden="true">|</span>
+      <button type="button" class="lang__btn" data-lang="en">EN</button>
+    </div>
+    <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="vh" data-i18n="a11y.menu">Menu</span>
+      <i aria-hidden="true"></i><i aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ══ Mobile menu ══════════════════════════════════════════════════════ -->
+<div class="mmenu" id="mobile-menu" inert>
+  <div class="mmenu__bg" aria-hidden="true"></div>
+  <nav class="mmenu__inner" aria-label="Mobile">
+    <ul>
+      <li><a href="#work"><span class="mmenu__n">01</span><span data-i18n="nav.work">Realizacje</span></a></li>
+      <li><a href="#services"><span class="mmenu__n">02</span><span data-i18n="nav.services">Usługi</span></a></li>
+      <li><a href="#pricing"><span class="mmenu__n">03</span><span data-i18n="nav.pricing">Cennik</span></a></li>
+      <li><a href="#contact"><span class="mmenu__n">04</span><span data-i18n="nav.contact">Kontakt</span></a></li>
+    </ul>
+    <div class="mmenu__foot">
+      <a href="mailto:hello@elvladislavo.com">hello@elvladislavo.com</a>
+      <div class="lang lang--m" role="group" aria-label="Language / Język">
+        <button type="button" class="lang__btn" data-lang="pl">PL</button>
+        <span class="lang__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang__btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<main id="main" class="gate">
+
+<!-- ══ 00 · Hero ════════════════════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__inner">
+    <p class="hero__eyebrow reveal">
+      <span class="dot" aria-hidden="true"></span>
+      <span data-i18n="hero.eyebrow">Niezależne studio stron internetowych</span>
+    </p>
+
+    <h1 class="hero__title" id="hero-title" data-split data-i18n-html="hero.title">Strony internetowe za <em>rozsądne</em> pieniądze.</h1>
+
+    <p class="hero__lede reveal" data-delay="120" data-i18n="hero.lede">Zajmuję się stroną od projektu po wdrożenie, więc płacisz tylko za pracę nad nią.</p>
+
+    <div class="hero__actions reveal" data-delay="220">
+      <a class="btn btn--fill magnet" href="#contact">
+        <span class="btn__t" data-i18n="hero.cta1">Opisz projekt</span>
+        <span class="btn__a" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn--ghost" href="#pricing">
+        <span class="btn__t" data-i18n="hero.cta2">Zobacz ceny</span>
+        <span class="btn__a" aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <ul class="hero__meta reveal" data-delay="320">
+      <li><span data-i18n="hero.m1k">Lokalizacja</span><b data-i18n="hero.m1v">Polska</b></li>
+      <li><span data-i18n="hero.m2k">Rozmawiam w</span><b>PL / EN / RU / BY / UA</b></li>
+      <li><span data-i18n="hero.m3k">Status</span><b class="live"><i aria-hidden="true"></i><span data-i18n="hero.m3v">Przyjmuję projekty</span></b></li>
+    </ul>
+  </div>
+
+  <div class="hero__mark" aria-hidden="true"><span data-stretch>elvladislavo</span></div>
+
+  <a class="hero__scroll" href="#work" aria-label="Scroll to work">
+    <span class="hero__scroll-l" aria-hidden="true"></span>
+    <span data-i18n="hero.scroll">Przewiń</span>
+  </a>
+</section>
+
+<!-- ══ 01 · Work ════════════════════════════════════════════════════════ -->
+<section class="sec work" id="work" aria-labelledby="work-title">
+  <header class="sec__head">
+    <span class="label"><i aria-hidden="true">01</i><span data-i18n="work.label">Wybrane realizacje</span></span>
+    <h2 class="sec__title" id="work-title" data-split data-i18n-html="work.title">Dwie prawdziwe strony. <em>Kliknij.</em></h2>
+    <p class="sec__lede" data-i18n="work.lede">Obie strony pracują u klientów. Linki prowadzą prosto do nich.</p>
+  </header>
+
+  <div class="projects">
+
+    <article class="proj proj--a" data-tilt>
+      <span class="proj__ghost" aria-hidden="true" data-drift="-90">KAMERALNY</span>
+      <a class="proj__link" href="https://kameralnybarbershop.pl" target="_blank" rel="noopener noreferrer" data-cursor="view">
+        <span class="proj__media">
+          <picture>
+            <source type="image/webp" srcset="assets/work-kameralny-700.webp 700w, assets/work-kameralny-1200.webp 1200w" sizes="(max-width: 820px) 92vw, 46vw">
+            <img src="assets/work-kameralny-1200.jpg" width="1200" height="1500" loading="lazy" decoding="async"
+                 alt="" aria-hidden="true">
+          </picture>
+          <picture class="proj__shot">
+            <source type="image/avif" srcset="assets/work-kameralny-shot-1200.avif 1200w, assets/work-kameralny-shot-2400.avif 2400w" sizes="(max-width: 980px) 100vw, 50vw">
+            <source type="image/webp" srcset="assets/work-kameralny-shot-1200.webp 1200w, assets/work-kameralny-shot-2400.webp 2400w" sizes="(max-width: 980px) 100vw, 50vw">
+            <img src="assets/work-kameralny-shot-1200.jpg" width="1200" height="1500" loading="lazy" decoding="async"
+                 data-i18n-alt="work.alt1"
+                 alt="Kameralny Barbershop — zrzut strony internetowej, prowadzi do kameralnybarbershop.pl">
+          </picture>
+          <span class="proj__veil" aria-hidden="true"></span>
+          <span class="proj__mask" aria-hidden="true"></span>
+        </span>
+        <span class="proj__info">
+          <span class="proj__top">
+            <span class="proj__num">01</span>
+            <span class="proj__cat" data-i18n="work.cat">Strona internetowa</span>
+          </span>
+          <span class="proj__name">Kameralny Barbershop</span>
+          <span class="proj__domain">kameralnybarbershop.pl</span>
+          <span class="proj__desc" data-i18n="work.p1">Barbershop tnie na poznańskim Piątkowie od 2017 roku, wcześniej jako Bishop. Strona przeprowadza klientów ze starej nazwy na nową, a rezerwację oddaje do Booksy.</span>
+          <span class="proj__cta"><span data-i18n="work.visit">Zobacz stronę</span><i aria-hidden="true">→</i></span>
+        </span>
+      </a>
+    </article>
+
+    <article class="proj proj--b" data-tilt>
+      <span class="proj__ghost" aria-hidden="true" data-drift="110">ZHYVITSA</span>
+      <a class="proj__link" href="https://zhyvitsa.pl" target="_blank" rel="noopener noreferrer" data-cursor="view">
+        <span class="proj__media">
+          <picture>
+            <source type="image/webp" srcset="assets/work-zhyvitsa-700.webp 700w, assets/work-zhyvitsa-1200.webp 1200w" sizes="(max-width: 820px) 92vw, 46vw">
+            <img src="assets/work-zhyvitsa-1200.jpg" width="1200" height="1500" loading="lazy" decoding="async"
+                 alt="" aria-hidden="true">
+          </picture>
+          <picture class="proj__shot">
+            <source type="image/avif" srcset="assets/work-zhyvitsa-shot-1200.avif 1200w, assets/work-zhyvitsa-shot-2400.avif 2400w" sizes="(max-width: 980px) 100vw, 50vw">
+            <source type="image/webp" srcset="assets/work-zhyvitsa-shot-1200.webp 1200w, assets/work-zhyvitsa-shot-2400.webp 2400w" sizes="(max-width: 980px) 100vw, 50vw">
+            <img src="assets/work-zhyvitsa-shot-1200.jpg" width="1200" height="1440" loading="lazy" decoding="async"
+                 data-i18n-alt="work.alt2"
+                 alt="Zhyvitsa — zrzut strony internetowej, prowadzi do zhyvitsa.pl">
+          </picture>
+          <span class="proj__veil" aria-hidden="true"></span>
+          <span class="proj__mask" aria-hidden="true"></span>
+        </span>
+        <span class="proj__info">
+          <span class="proj__top">
+            <span class="proj__num">02</span>
+            <span class="proj__cat" data-i18n="work.cat">Strona internetowa</span>
+          </span>
+          <span class="proj__name">Zhyvitsa</span>
+          <span class="proj__domain">zhyvitsa.pl</span>
+          <span class="proj__desc" data-i18n="work.p2">Pracownia florystyczna z Warszawy: bukiety, warsztaty i dekoracje. Zamówienia przyjmuje telefonicznie i mailowo, a galerią jest Instagram.</span>
+          <span class="proj__cta"><span data-i18n="work.visit">Zobacz stronę</span><i aria-hidden="true">→</i></span>
+        </span>
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══ 02 · Services ════════════════════════════════════════════════════ -->
+<section class="sec svcs" id="services" aria-labelledby="svc-title">
+  <header class="sec__head sec__head--split">
+    <div>
+      <span class="label"><i aria-hidden="true">02</i><span data-i18n="svc.label">Usługi</span></span>
+      <h2 class="sec__title" id="svc-title" data-split data-i18n-html="svc.title">Pięć sposobów, żeby <em>zacząć</em>.</h2>
+    </div>
+    <p class="sec__note" data-i18n="svc.note">Każdy projekt wyceniam indywidualnie. Wybierz najbliższy punkt wyjścia — resztę dopasuję do Twojego przypadku.</p>
+  </header>
+
+  <div class="svc" id="svcList">
+
+    <div class="svc__item" data-svc>
+      <h3 class="svc__h">
+        <button type="button" class="svc__row" aria-expanded="false" aria-controls="svc-p1">
+          <span class="svc__num">01</span>
+          <span class="svc__name" data-i18n="svc.n1">Strony dla firm</span>
+          <span class="svc__hint" data-i18n="svc.d1">Kilka podstron: oferta, o firmie, kontakt. Treści zmieniasz samodzielnie.</span>
+          <span class="svc__sign" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="svc__panel" id="svc-p1" role="region">
+        <div class="svc__pin">
+          <p data-i18n="svc.d1">Kilka podstron: oferta, o firmie, kontakt. Treści zmieniasz samodzielnie.</p>
+          <ul class="tags">
+            <li data-i18n="tag.pages">Struktura wielostronicowa</li><li data-i18n="tag.cms">Edytowalne treści</li>
+            <li data-i18n="tag.seo">Techniczna baza SEO</li><li data-i18n="tag.forms">Formularze kontaktowe</li>
+            <li data-i18n="tag.resp">Responsywny design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc__item" data-svc>
+      <h3 class="svc__h">
+        <button type="button" class="svc__row" aria-expanded="false" aria-controls="svc-p2">
+          <span class="svc__num">02</span>
+          <span class="svc__name" data-i18n="svc.n2">Landing page</span>
+          <span class="svc__hint" data-i18n="svc.d2">Jedna strona pod jedną ofertę. Cała treść i formularz w jednym przewinięciu.</span>
+          <span class="svc__sign" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="svc__panel" id="svc-p2" role="region">
+        <div class="svc__pin">
+          <p data-i18n="svc.d2">Jedna strona pod jedną ofertę. Cała treść i formularz w jednym przewinięciu.</p>
+          <ul class="tags">
+            <li data-i18n="tag.single">Jedna strona</li><li data-i18n="tag.cta">Jasne wezwanie do działania</li>
+            <li data-i18n="tag.speed">Szybkie ładowanie</li><li data-i18n="tag.analytics">Gotowe pod analitykę</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc__item" data-svc>
+      <h3 class="svc__h">
+        <button type="button" class="svc__row" aria-expanded="false" aria-controls="svc-p3">
+          <span class="svc__num">03</span>
+          <span class="svc__name" data-i18n="svc.n3">Strony autorskie</span>
+          <span class="svc__hint" data-i18n="svc.d3">Własny układ, krój pisma i animacje, dobrane pod jedną markę.</span>
+          <span class="svc__sign" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="svc__panel" id="svc-p3" role="region">
+        <div class="svc__pin">
+          <p data-i18n="svc.d3">Własny układ, krój pisma i animacje, dobrane pod jedną markę.</p>
+          <ul class="tags">
+            <li data-i18n="tag.art">Autorski kierunek wizualny</li><li data-i18n="tag.motion">Przemyślana animacja</li>
+            <li data-i18n="tag.hand">Kod pisany ręcznie</li><li data-i18n="tag.a11y">Podstawy dostępności</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc__item svc__item--wide" data-svc>
+      <h3 class="svc__h">
+        <button type="button" class="svc__row" aria-expanded="false" aria-controls="svc-p4">
+          <span class="svc__num">04</span>
+          <span class="svc__name" data-i18n="svc.n4">Sklepy WooCommerce</span>
+          <span class="svc__hint" data-i18n="svc.d4">Katalog, koszyk i płatności uruchamiam na WordPressie.</span>
+          <span class="svc__sign" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="svc__panel" id="svc-p4" role="region">
+        <div class="svc__pin svc__pin--cols">
+          <div>
+            <p data-i18n="svc.d4">Katalog, koszyk i płatności uruchamiam na WordPressie.</p>
+            <p class="svc__sub" data-i18n="svc.d4b">Sklep prowadzisz potem samodzielnie: dodajesz i edytujesz produkty, obsługujesz zamówienia, zmieniasz treści, ustawiasz płatności i wysyłkę — wszystko z panelu WordPressa.</p>
+          </div>
+          <ul class="tags">
+            <li data-i18n="tag.cat">Katalog produktów</li><li data-i18n="tag.cart">Koszyk</li>
+            <li data-i18n="tag.checkout">Proces zakupowy</li><li data-i18n="tag.pay">Integracja płatności</li>
+            <li data-i18n="tag.ship">Konfiguracja wysyłki</li><li data-i18n="tag.prod">Zarządzanie produktami</li>
+            <li data-i18n="tag.resp">Responsywny design</li><li data-i18n="tag.seo">Techniczna baza SEO</li>
+            <li data-i18n="tag.perf">Optymalizacja wydajności</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc__item" data-svc>
+      <h3 class="svc__h">
+        <button type="button" class="svc__row" aria-expanded="false" aria-controls="svc-p5">
+          <span class="svc__num">05</span>
+          <span class="svc__name" data-i18n="svc.n5">Redesign</span>
+          <span class="svc__hint" data-i18n="svc.d5">Treści i adresy zostają. Zmieniam wygląd, wersję mobilną i czas ładowania.</span>
+          <span class="svc__sign" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="svc__panel" id="svc-p5" role="region">
+        <div class="svc__pin">
+          <p data-i18n="svc.d5">Treści i adresy zostają. Zmieniam wygląd, wersję mobilną i czas ładowania.</p>
+          <ul class="tags">
+            <li data-i18n="tag.audit">Przegląd struktury</li><li data-i18n="tag.rebuild">Przebudowa wizualna</li>
+            <li data-i18n="tag.mobile">Naprawa wersji mobilnej</li><li data-i18n="tag.redir">Czyste przekierowania</li>
+            <li data-i18n="tag.speed">Szybkie ładowanie</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 03 · Approach (light) ════════════════════════════════════════════ -->
+<section class="sec sec--light approach" id="approach" aria-labelledby="app-title">
+  <div class="approach__deco" aria-hidden="true"><span>*</span></div>
+
+  <header class="sec__head">
+    <span class="label"><i aria-hidden="true">03</i><span data-i18n="app.label">Zakres prac</span></span>
+    <h2 class="sec__title" id="app-title" data-split data-i18n="app.title">Co dostajesz</h2>
+  </header>
+
+  <ol class="grid6">
+    <li class="cell" data-cell><span class="cell__n">01</span><h3 data-i18n="app.h1">Design</h3><p data-i18n="app.p1">Kierunek wizualny ustalam od zera</p></li>
+    <li class="cell" data-cell><span class="cell__n">02</span><h3 data-i18n="app.h2">Kod</h3><p data-i18n="app.p2">Semantyczny HTML i uporządkowany CSS</p></li>
+    <li class="cell" data-cell><span class="cell__n">03</span><h3 data-i18n="app.h3">SEO</h3><p data-i18n="app.p3">Porządkuję tytuły, strukturę i mapę strony</p></li>
+    <li class="cell" data-cell><span class="cell__n">04</span><h3 data-i18n="app.h4">Wydajność</h3><p data-i18n="app.p4">Optymalizuję obrazy i rozmiar kodu</p></li>
+    <li class="cell" data-cell><span class="cell__n">05</span><h3 data-i18n="app.h5">Mobile</h3><p data-i18n="app.p5">Projektowanie zaczynam od wersji mobilnej</p></li>
+    <li class="cell" data-cell><span class="cell__n">06</span><h3 data-i18n="app.h6">Wdrożenie</h3><p data-i18n="app.p6">Pliki i dostępy zostają u Ciebie</p></li>
+  </ol>
+
+  <div class="incl">
+    <div class="incl__col">
+      <h3 class="incl__h" data-i18n="incl.title">Standard tam, gdzie projekt tego wymaga</h3>
+      <ul class="chips">
+        <li data-i18n="incl.1">Responsywny design</li><li data-i18n="incl.2">Semantyczny HTML</li>
+        <li data-i18n="incl.3">Hierarchia nagłówków</li><li data-i18n="incl.4">Tytuły SEO</li>
+        <li data-i18n="incl.5">Meta description</li><li data-i18n="incl.6">Adresy kanoniczne</li>
+        <li data-i18n="incl.7">Open Graph</li><li data-i18n="incl.8">Atrybuty alt</li>
+        <li data-i18n="incl.9">Zoptymalizowane obrazy</li><li data-i18n="incl.10">Formaty webp i avif</li>
+        <li data-i18n="incl.11">Lazy loading</li><li data-i18n="incl.12">Podstawy dostępności</li>
+        <li data-i18n="incl.13">Nawigacja mobilna</li><li data-i18n="incl.14">Favicon</li>
+        <li data-i18n="incl.15">Strona 404</li><li data-i18n="incl.16">robots.txt</li>
+        <li data-i18n="incl.17">sitemap.xml</li><li data-i18n="incl.18">Gotowe pod Search Console</li>
+        <li data-i18n="incl.19">Gotowe pod analitykę</li><li data-i18n="incl.20">Schema.org / JSON-LD</li>
+        <li data-i18n="incl.21">Czyste przekierowania</li><li data-i18n="incl.22">Podstawy bezpieczeństwa</li>
+        <li data-i18n="incl.23">Walidacja formularzy</li><li data-i18n="incl.24">Ochrona przed spamem</li>
+        <li data-i18n="incl.25">Core Web Vitals</li>
+      </ul>
+    </div>
+    <aside class="incl__note">
+      <span class="incl__badge" data-i18n="incl.badge">Warto powiedzieć wprost</span>
+      <p data-i18n="incl.body">Hosting, koszty domeny, płatne wtyczki i motywy, prowizje operatorów płatności oraz usługi zewnętrzne nie są automatycznie wliczone, chyba że ustalimy inaczej.</p>
+      <p class="incl__seo" data-i18n="incl.seo">SEO oznacza tu mocny fundament techniczny — poprawną strukturę, szybkość i indeksowalność. Nikt uczciwy nie zagwarantuje pozycji w wynikach.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ══ 04 · Pricing ═════════════════════════════════════════════════════ -->
+<section class="sec pricing" id="pricing" aria-labelledby="price-title">
+  <header class="sec__head">
+    <span class="label"><i aria-hidden="true">04</i><span data-i18n="pr.label">Cennik</span></span>
+    <h2 class="sec__title" id="price-title" data-split data-i18n-html="pr.title">Punkty wyjścia, <em>nie</em> pakiety.</h2>
+  </header>
+
+  <div class="prices">
+    <a class="price" href="#contact" data-cell>
+      <span class="price__n">01</span>
+      <span class="price__name" data-i18n="pr.n1">Landing page</span>
+      <span class="price__amt"><i data-i18n="pr.from">od</i><b>800</b><u>PLN</u></span>
+      <span class="price__go" aria-hidden="true">→</span>
+    </a>
+    <a class="price" href="#contact" data-cell>
+      <span class="price__n">02</span>
+      <span class="price__name" data-i18n="pr.n2">Strony dla firm</span>
+      <span class="price__amt"><i data-i18n="pr.from">od</i><b>1500</b><u>PLN</u></span>
+      <span class="price__go" aria-hidden="true">→</span>
+    </a>    
+     <a class="price" href="#contact" data-cell>
+      <span class="price__n">03</span>
+      <span class="price__name" data-i18n="pr.n4">Strony autorskie</span>
+      <span class="price__amt"><i data-i18n="pr.from">od</i><b>2000</b><u>PLN</u></span>
+      <span class="price__go" aria-hidden="true">→</span>
+    </a>
+    <a class="price" href="#contact" data-cell>
+      <span class="price__n">04</span>
+      <span class="price__name" data-i18n="pr.n3">Sklepy WooCommerce</span>
+      <span class="price__amt"><i data-i18n="pr.from">od</i><b>3200</b><u>PLN</u></span>
+      <span class="price__go" aria-hidden="true">→</span>
+    </a>
+    <a class="price" href="#contact" data-cell>
+      <span class="price__n">05</span>
+      <span class="price__name" data-i18n="pr.n5">Redesign</span>
+      <span class="price__amt"><i data-i18n="pr.from">od</i><b>500</b><u>PLN</u></span>
+      <span class="price__go" aria-hidden="true">→</span>
+    </a>
+
+  </div>
+
+  <div class="pricing__foot">
+    <p class="statement" data-split data-i18n-html="pr.stat">Wyceniam po rozmowie. <em>Widełki podaję przed startem.</em></p></p>
+    <p class="fine" data-i18n="pr.fine">Podane ceny są orientacyjne. Końcowa cena zależy od dostępnego czasu, złożoności projektu, wymaganych funkcji, integracji, ilości treści oraz zakresu prac.</p>
+  </div>
+</section>
+
+<!-- ══ 05 · Process ═════════════════════════════════════════════════════ -->
+<section class="sec process" id="process" aria-labelledby="proc-title">
+  <header class="sec__head">
+    <span class="label"><i aria-hidden="true">05</i><span data-i18n="pc.label">Proces</span></span>
+    <h2 class="sec__title" id="proc-title" data-split data-i18n-html="pc.title">Trzy kroki.</h2>
+  </header>
+
+  <ol class="steps">
+    <li class="step" data-cell>
+      <span class="step__n">01</span>
+      <span class="step__line" aria-hidden="true"></span>
+      <h3 data-i18n="pc.h1">Opowiedz, czego potrzebujesz</h3>
+      <p data-i18n="pc.p1">Opisujesz projekt, ja pytam o cel i budżet.</p>
+    </li>
+    <li class="step" data-cell>
+      <span class="step__n">02</span>
+      <span class="step__line" aria-hidden="true"></span>
+      <h3 data-i18n="pc.h2">Projekt i budowa</h3>
+      <p data-i18n="pc.p2">Najpierw przedstawiam układ, potem piszę kod.</p>
+    </li>
+    <li class="step" data-cell>
+      <span class="step__n">03</span>
+      <span class="step__line" aria-hidden="true"></span>
+      <h3 data-i18n="pc.h3">Dopracowanie i publikacja</h3>
+      <p data-i18n="pc.p3">Testuję, poprawiam i przenoszę na Twój hosting.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ══ 06 · Contact ═════════════════════════════════════════════════════ -->
+<section class="sec contact" id="contact" aria-labelledby="ct-title">
+  <div class="contact__deco" aria-hidden="true"><span class="ring ring--3"></span></div>
+
+  <header class="sec__head">
+    <span class="label"><i aria-hidden="true">06</i><span data-i18n="ct.label">Kontakt</span></span>
+    <h2 class="sec__title sec__title--xl" id="ct-title" data-split data-i18n-html="ct.title">Masz pomysł? <em>Zróbmy z niego coś konkretnego.</em></h2>
+  </header>
+
+  <div class="contact__grid">
+    <form class="form" id="contactForm" novalidate>
+      <div class="form__row">
+        <div class="field">
+          <input type="text" id="f-name" name="name" placeholder=" " required autocomplete="name" maxlength="80">
+          <label for="f-name" data-i18n="ct.name">Imię</label>
+          <span class="field__line" aria-hidden="true"></span>
+          <span class="field__err" id="e-name" role="alert"></span>
+        </div>
+        <div class="field">
+          <input type="email" id="f-email" name="email" placeholder=" " required autocomplete="email" maxlength="120">
+          <label for="f-email" data-i18n="ct.email">E-mail</label>
+          <span class="field__line" aria-hidden="true"></span>
+          <span class="field__err" id="e-email" role="alert"></span>
+        </div>
+      </div>
+
+      <div class="field field--sel">
+        <select id="f-need" name="need" required>
+          <option value="" selected disabled data-i18n="ct.pick">Wybierz</option>
+          <option value="business" data-i18n="svc.n1">Strony dla firm</option>
+          <option value="landing" data-i18n="svc.n2">Landing page</option>
+          <option value="custom" data-i18n="svc.n3">Strony autorskie</option>
+          <option value="shop" data-i18n="svc.n4">Sklepy WooCommerce</option>
+          <option value="redesign" data-i18n="svc.n5">Redesign</option>
+          <option value="other" data-i18n="ct.other">Coś innego</option>
+        </select>
+        <label for="f-need" data-i18n="ct.need">Czego potrzebujesz?</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <span class="field__err" id="e-need" role="alert"></span>
+      </div>
+
+      <div class="field">
+        <textarea id="f-msg" name="message" rows="4" placeholder=" " required maxlength="2000"></textarea>
+        <label for="f-msg" data-i18n="ct.msg">Wiadomość</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <span class="field__err" id="e-msg" role="alert"></span>
+      </div>
+
+      <!-- Spam honeypot: hidden from people, tempting to bots. -->
+      <div class="hp" aria-hidden="true">
+        <label for="f-company">Company</label>
+        <input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" class="btn btn--send magnet" id="sendBtn">
+        <span class="btn__t" data-i18n="ct.send">Wyślij</span>
+        <span class="btn__a" aria-hidden="true">→</span>
+      </button>
+
+      <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+   <aside class="contact__side">
+  <div class="contact__blk">
+    <span class="contact__k" data-i18n="ct.direct">Wolisz mail?</span>
+    <a class="contact__mail magnet" href="mailto:hello@elvladislavo.com">hello@elvladislavo.com</a>
+  </div>
+
+  <div class="contact__blk">
+    <span class="contact__k">Telefon</span>
+    <a class="contact__mail magnet" href="tel:+48505758038">+48 505 758 038</a>
+  </div>
+
+  <div class="contact__blk">
+    <span class="contact__k" data-i18n="ct.langs">Języki obsługi</span>
+    <p>PL / EN / RU / BY / UA</p>
+  </div>
+
+  <div class="contact__blk">
+    <span class="contact__k" data-i18n="ct.reply">Czas odpowiedzi</span>
+    <p data-i18n="ct.replyv">Zwykle w ciągu jednego dnia roboczego.</p>
+  </div>
+
+  <a class="btn btn--fill magnet contact__start" href="mailto:hello@elvladislavo.com?subject=Project%20enquiry">
+    <span class="btn__t" data-i18n="ct.start">Zacznijmy projekt</span>
+    <span class="btn__a" aria-hidden="true">→</span>
+  </a>
+</aside>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ══ Footer ═══════════════════════════════════════════════════════════ -->
+<footer class="foot">
+  <div class="foot__top">
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="#work" data-i18n="nav.work">Realizacje</a>
+      <a href="#services" data-i18n="nav.services">Usługi</a>
+      <a href="#pricing" data-i18n="nav.pricing">Cennik</a>
+      <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+      <a href="privacy.html" data-i18n="foot.privacy">Polityka prywatności</a>
+    </nav>
+    <div class="foot__right">
+      <a class="foot__mail" href="mailto:hello@elvladislavo.com">hello@elvladislavo.com</a>
+      <div class="lang" role="group" aria-label="Language / Język">
+        <button type="button" class="lang__btn" data-lang="pl">PL</button>
+        <span class="lang__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang__btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot__mark" aria-hidden="true"><span data-stretch>elvladislavo</span></div>
+
+  <div class="foot__bar">
+    <span>© <span id="yr">2026</span> elvladislavo</span>
+    <span data-i18n="foot.made">Niezależne studio stron internetowych</span>
+    <a href="#top" class="foot__up"><span data-i18n="foot.top">Do góry</span> <i aria-hidden="true">↑</i></a>
+  </div>
+</footer>
+
+<script src="js/bz.js" defer></script>
+<script src="js/script.js" defer></script>
+</body>
+</html>
